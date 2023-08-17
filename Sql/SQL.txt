@@ -1,0 +1,13 @@
+
+	=>Database ExpenseTracker
+	=>Main Table UserDetails
+		1.userid int primary key identity(1001,1),
+		2.fname varchar(40) not null,
+		3.lname varchar(40) not null,
+		4.moblieno bigint unique not null,
+		5.emailid varchar(50) unique not null,
+		6.password varchar(50) not null
+	=> List of All Table IncomeAndExpenseListTB
+		1.IEId int  primary key identity(1,1),
+		2.name varchar(100) unique
+	=> 
