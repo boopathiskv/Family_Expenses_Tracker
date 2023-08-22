@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BAL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,10 +13,11 @@ namespace Expenses_Tracker
 {
     public partial class UserHomePage : System.Web.UI.Page
     {
-        
+
         string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-        
+
         List<string> CategoryList = new List<string>();
+        Categories_BAL categories_Bal = new Categories_BAL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,40 +26,11 @@ namespace Expenses_Tracker
             string Uname = (string)Session["fname"] + " " + (string)Session["lname"];
             Response.Output.Write($"User Id :{userId}, Name : {Uname}");
             if (!IsPostBack)
-            {                                          
-                using (SqlConnection con = new SqlConnection(cs))
-                {
-                    string sql = $"select * from CategoryList_TB order by category_ID";
-                    using (SqlCommand cmd = new SqlCommand(sql, con))
-                    {
-                        try
-                        {
-                            con.Open();
-                            SqlDataReader dr=cmd.ExecuteReader();
-                            List<string> Category = new List<string>();
-                            while (dr.Read())
-                            {
-                                Category.Add(dr["category_Name"].ToString());                                
-                            }
-                            ddlCategory.DataSource = Category;
-                            ddlCategory.DataBind();
-                        }
-                        catch (Exception ex)
-                        {
-                            Response.Write($"<script>alert('{ex.Message} Category Field ')</script>");
-                        }
-                        finally
-                        {
-                            if (con.State == ConnectionState.Open)
-                            {
-                                con.Close();
-                            }                            
-                        }
-                    }
-                }
-                Load();
+            {
+                ddlCategory.DataSource = categories_Bal;
+                ddlCategory.DataBind();
             }
-            
+
         }
 
         protected void Load()
@@ -107,7 +80,7 @@ namespace Expenses_Tracker
 
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             using (SqlConnection con = new SqlConnection(cs))
             {
                 string selectCategory = ddlCategory.SelectedValue.ToString();
@@ -144,10 +117,10 @@ namespace Expenses_Tracker
 
         protected void btninsert_Click(object sender, EventArgs e)
         {
-            
+
             using (SqlConnection con = new SqlConnection(cs))
             {
-                int UserId = (int)Session["UserId"];               
+                int UserId = (int)Session["UserId"];
                 string t2 = ddlCategoryList.Text;
                 string t3 = txtdate.Text;
                 string t4 = txtgst.Text;
@@ -169,13 +142,13 @@ namespace Expenses_Tracker
                         if (t > 0)
                         {
                             //Session[""]
-                            Response.Write("<script>alert('Inserted Successfull')</script>");                            
+                            Response.Write("<script>alert('Inserted Successfull')</script>");
                             //Response.Output.Write("<script>alert('Inserted Successfull')</script>");
                         }
                     }
                     catch (SqlException ex)
                     {
-                        if(ex.Number == 2627)
+                        if (ex.Number == 2627)
                             Response.Write($"<script>alert(' Already Recorde Exists ')</script>");
                         else
                             Response.Write($"<script>alert('{ex.Message} Inserted Field ')</script> {ex.Message}");
@@ -191,13 +164,13 @@ namespace Expenses_Tracker
                 }
             }
             Load();
-        }      
+        }
 
         protected void btnLogout_Click(object sender, EventArgs e)
-        {                     
+        {
             Session.Clear();
             Session.Abandon();
-            Response.Cookies.Clear();            
+            Response.Cookies.Clear();
             Response.Redirect("LoginPage.aspx");
 
             //Response.Redirect("LoginPage.aspx");
@@ -250,7 +223,7 @@ namespace Expenses_Tracker
 
         void CheckUser()
         {
-            if (Session["UserId"] == null && (string)Session["fname"] == null && (string)Session["lname"] == null)
+            if (Session["UserId"] == null || (string)Session["fname"] == null || (string)Session["lname"] == null)
                 Response.Redirect("LoginPage.aspx");
         }
 
@@ -263,6 +236,6 @@ namespace Expenses_Tracker
             CategoryList.Clear();
         }
 
-       
+
     }
 }

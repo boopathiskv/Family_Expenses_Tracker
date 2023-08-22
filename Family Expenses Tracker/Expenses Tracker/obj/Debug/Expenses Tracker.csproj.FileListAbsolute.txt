@@ -54,3 +54,9 @@ C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tra
 C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\obj\Debug\Expenses Tracker.csproj.CopyComplete
 C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\obj\Debug\Expenses Tracker.dll
 C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\obj\Debug\Expenses Tracker.pdb
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\bin\BAL.dll
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\bin\BO.dll
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\bin\DAL.dll
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\bin\BAL.pdb
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\bin\BO.pdb
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\Expenses Tracker\bin\DAL.pdb

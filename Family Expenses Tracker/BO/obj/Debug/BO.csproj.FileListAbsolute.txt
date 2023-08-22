@@ -1,0 +1,6 @@
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\BO\bin\Debug\BO.dll
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\BO\bin\Debug\BO.pdb
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\BO\obj\Debug\BO.csprojAssemblyReference.cache
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\BO\obj\Debug\BO.dll
+C:\Users\Boopathi S\Documents\GitHub\Family_Expenses_Tracker\Family Expenses Tracker\BO\obj\Debug\BO.pdb
